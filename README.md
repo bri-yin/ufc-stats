@@ -10,15 +10,6 @@ This project uses historical UFC fight and fighter statistics to train a machine
 - Evaluates the model and reports accuracy, precision, recall, and feature importance
 - Provides a Streamlit app to input fighters and display win probability predictions
 
-## Project Structure
-ufc-stats/
-├── data/               # Raw fighter and fight CSVs
-├── models/             # Saved model, scaler, and feature columns
-├── src/
-│   ├── train_xgboost.py   # Training script
-│   └── ufc_app.py         # Streamlit app
-└── README.md
-
 ## Installation
 1. Clone the repository:
    git clone <your_repo_url>
