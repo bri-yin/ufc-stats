@@ -8,5 +8,3 @@ venv/
 
 # Jupyter
 .ipynb_checkpoints/
-
-data/
