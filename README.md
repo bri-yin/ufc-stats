@@ -1,5 +1,7 @@
 # UFC Fight Predictor
 
+<img width="728" height="682" alt="image" src="https://github.com/user-attachments/assets/5f014533-d6af-413f-94e4-896b5c5cceca" />
+
 This project uses historical UFC fight and fighter statistics to train a machine learning model (XGBoost) that predicts the outcome of future matchups. A Streamlit web app provides an interface for comparing fighters and visualizing predictions.
 
 ## Features
