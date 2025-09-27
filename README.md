@@ -1,11 +1,83 @@
-# ufc-stats
+UFC Fight Predictor
 
-The goal with this project is to build comprehensive statistics about how MMA fights work, and what correlates to advantages.
+This project uses historical UFC fight and fighter statistics to train a machine learning model (XGBoost) that predicts the outcome of future matchups. A Streamlit web app provides an interface for comparing fighters and visualizing predictions.
 
-UFCstats.com lists fighter stats including, height, reach, stance, age, and various other facts about a fighter.
+Features
 
-Using these statistis and scraping it into a database we can test a couple of hypotheses.
+Cleans and preprocesses UFC fighter and fight data
 
-We need to first run a few tests on the dataset, how often does a fighter win that is above 35? How often does the fighter with a longer reach win? How often does a challenger beat a reigning champion?
+Balances training data so fighter position does not bias results
 
-Of course, there are many other factors that goes into every fight, but I hope this can be the basis before launching into an algorithm that can make me some real money in the sports betting world.
+Engineers comparative features such as reach difference, striking ratios, and takedown accuracy
+
+Trains an XGBoost classifier with hyperparameter tuning
+
+Evaluates the model and reports accuracy, precision, recall, and feature importance
+
+Provides a Streamlit app to input fighters and display win probability predictions
+
+Project Structure
+
+ufc-stats/
+├── data/               # Raw fighter and fight CSVs
+├── models/             # Saved model, scaler, and feature columns
+├── src/
+│   ├── train_xgboost.py   # Training script
+│   └── ufc_app.py         # Streamlit app
+└── README.md
+
+Installation
+
+Clone the repository:
+
+git clone <your_repo_url>
+cd ufc-stats
+
+
+Create and activate a Python environment (example with pyenv + venv):
+
+pyenv install 3.12.6
+pyenv local 3.12.6
+python -m venv venv
+source venv/bin/activate
+
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Training the Model
+
+To train and save the model, scaler, and feature columns:
+
+python src/train_xgboost.py
+
+
+Artifacts will be saved to models/model_xgb.pkl, models/scaler.pkl, and models/feature_cols.pkl.
+
+Running the App
+
+To launch the Streamlit app:
+
+streamlit run src/ufc_app.py
+
+
+This will start a local server (default http://localhost:8501) where you can compare fighters and view win probability predictions.
+
+Data
+
+The project expects:
+
+data/ufc_fighters_master.csv: fighter statistics
+
+data/ufc_fights_all.csv: fight outcomes
+
+These CSVs should be scraped or prepared before training. The preprocessing functions will clean and normalize them for use with the model.
+
+Notes
+
+The model currently uses striking, grappling, reach, and age statistics as features.
+
+Performance can be improved by adding fight history, weight class, and opponent strength features.
+
+Predictions are probabilistic and not guaranteed; this is a data science project, not a betting tool.
